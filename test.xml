@@ -1,0 +1,37 @@
+<district district-name="Fetesti">
+    <church-list>
+        <church address="Fetesti, str. Dropilor" name="Fetesti" church-id="0"/>
+        <church address="Borcea, nr. 25" name="Borcea" church-id="1"/>
+        <church address="Perisoru, nr. 34" name="Perisoru" church-id="2"/>
+        <church address="Movila, nr. 67" name="Movila" church-id="3"/>
+    </church-list>
+    <member-list>
+        <member church-id="0" member-id="100">
+            <name></name>
+            <address></address>
+            <date-of-birth></date-of-birth>
+            <date-of-baptism></date-of-baptism>
+            <description></description>
+            <notes></notes>
+            <date-of-last-visit></date-of-last-visit>
+        </member>
+        <member church-id="0" member-id="101">
+            <name></name>
+            <address></address>
+            <date-of-birth></date-of-birth>
+            <date-of-baptism></date-of-baptism>
+            <description></description>
+            <notes></notes>
+            <date-of-last-visit></date-of-last-visit>
+        </member>
+        <member church-id="1" member-id="102">
+            <name></name>
+            <address></address>
+            <date-of-birth></date-of-birth>
+            <date-of-baptism></date-of-baptism>
+            <description></description>
+            <notes></notes>
+            <date-of-last-visit></date-of-last-visit>
+        </member>
+    </member-list>
+</district>
