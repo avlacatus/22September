@@ -2,13 +2,15 @@ package com.avneacsu.sept.model
 
 
 object Member {
-  def apply(id: Int, name: String, churchId: Int) = new Member(id, name, churchId, "", "", "", "", "", "")
+  def apply(id: Int, name: String, churchId: Int) = new Member(id, name, churchId, "", "", "", "", "", "", "", "")
 }
 
-case class Member(id: Int, 
+case class Member(memberId: Int,
                   name: String, 
                   churchId: Int, 
-                  address: String, 
+                  address: String,
+                  phoneNo: String,
+                  email: String,
                   dateOfBirth: String,
                   dateOfBaptism: String,
                   description: String,
@@ -16,7 +18,7 @@ case class Member(id: Int,
                   lastVisited: String) extends AbstractResource with XMLResource {
 
   def this(id: Int, name: String, churchId: Int) {
-    this(id, name, churchId, "", "", "", "", "", "")
+    this(id, name, churchId, "", "", "", "", "", "", "", "")
   }
 
   override def getRootElementName: String = "member"
@@ -25,14 +27,16 @@ case class Member(id: Int,
 
   override def getValueForAttribute(attributeName: String): String = attributeName match {
     case "church-id" => churchId.toString
-    case "member-id" => id.toString
+    case "member-id" => memberId.toString
   }
 
-  def getChildrenNameList: List[String] = List("name", "address", "date-of-birth", "date-of-baptism", "description", "notes", "date-of-last-visit")
+  override def getChildrenNameList: List[String] = List("name", "address", "phone-no", "email", "date-of-birth", "date-of-baptism", "description", "notes", "date-of-last-visit")
 
-  def getValueForChild(childName: String): String = childName match {
+  override def getValueForChild(childName: String): String = childName match {
     case "name" => name
     case "address" => address
+    case "phone-no" => phoneNo
+    case "email" => email
     case "date-of-birth" => dateOfBirth
     case "date-of-baptism" => dateOfBaptism
     case "notes" => notes

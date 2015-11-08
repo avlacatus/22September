@@ -1,4 +1,9 @@
 <district district-name="Fetesti">
+    <pastor>
+        <name>Cosmin Neacsu</name>
+        <phone-no>+40744589166</phone-no>
+        <email>neacsucosmin@adventist.ro</email>
+    </pastor>
     <church-list>
         <church address="Fetesti, str. Dropilor" name="Fetesti" church-id="0"/>
         <church address="Borcea, nr. 25" name="Borcea" church-id="1"/>
@@ -8,12 +13,12 @@
     <member-list>
         <member church-id="0" member-id="100">
             <name>David Neacsu</name>
-            <address></address>
-            <date-of-birth></date-of-birth>
-            <date-of-baptism></date-of-baptism>
-            <description></description>
-            <notes></notes>
-            <date-of-last-visit></date-of-last-visit>
+            <address>Dranceni</address>
+            <date-of-birth>09-22-2015</date-of-birth>
+            <date-of-baptism>N/A</date-of-baptism>
+            <description>baiatul lui tati si a lui mami</description>
+            <notes>cel mai frumos baietel</notes>
+            <date-of-last-visit>10/29/2015</date-of-last-visit>
         </member>
         <member church-id="0" member-id="101">
             <name>Tanti Reva</name>
