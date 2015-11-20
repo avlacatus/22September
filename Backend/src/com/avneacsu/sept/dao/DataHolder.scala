@@ -2,16 +2,18 @@ package com.avneacsu.sept.dao
 
 import java.io.{File, PrintWriter}
 
+import com.avneacsu.sept.DataSetChangedEvent
 import com.avneacsu.sept.model.{Member, Church, District}
 import com.avneacsu.sept.parser.DefaultDistrictFormatter
 
+import scala.swing.Publisher
 import scala.{Tuple2, Tuple1}
 import scala.xml.XML
 
 /**
  * Created by Beta on 10/29/2015.
  */
-object DataHolder {
+object DataHolder extends Publisher{
 
   private var district: District = _
 
@@ -71,5 +73,28 @@ object DataHolder {
 
   def updateChurch(churchId: Int, name: String, address: String): Unit = {
     district = district.copy(churches = district.churches + ((churchId, Church(churchId, name, address))))
+  }
+
+  def registerMember(churchId: Int, name: String, address: String, email: String, phoneNo: String, birthday: String, baptismDate: String, description: String, notes: String): Option[Member] = {
+    if (district != null) {
+      maxMemberId += 1
+      district = district.copy(members = district.members.+((maxMemberId, Member(maxMemberId, name, churchId, address, phoneNo, email, birthday, baptismDate, description, notes, ""))))
+      println("register member called")
+      publish(new DataSetChangedEvent)
+      Some(district.members(maxMemberId))
+    } else {
+      None
+    }
+  }
+
+  def updateMember(memberId: Int, churchId: Int, name: String, address: String, email: String, phoneNo: String, birthday: String, baptismDate: String, description: String, notes: String): Option[Member] = {
+    if (district != null && district.members.contains(memberId)) {
+      district = district.copy(members = district.members.+((memberId, Member(memberId, name, churchId, address, phoneNo, email, birthday, baptismDate, description, notes, ""))))
+      println("update member called")
+      publish(new DataSetChangedEvent)
+      Some(district.members(memberId))
+    } else {
+      None
+    }
   }
 }

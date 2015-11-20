@@ -3,6 +3,7 @@ package com.avneacsu.sept.model
 
 object Member {
   def apply(id: Int, name: String, churchId: Int) = new Member(id, name, churchId, "", "", "", "", "", "", "", "")
+  val DATE_FORMAT = "YYYY-mm-dd"
 }
 
 case class Member(memberId: Int,
